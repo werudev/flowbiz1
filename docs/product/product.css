@@ -68,7 +68,7 @@ body {
     text-decoration: none;
     color: #8a3d11;
     font-weight: 700;
-    text-transform: uppercase;
+  
     letter-spacing: 0.04em;
     padding: 0.55rem 0;
 }
@@ -260,9 +260,18 @@ body {
 }
 
 footer {
+    background-color: #fff;
+    color: #8a3d11;
+    border-top: 1px solid #eee;
     text-align: center;
-    padding: 20px;
-    color: #888888;
-    font-size: 0.9rem;
+    padding: 24px 0;
     margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
 }

@@ -9,11 +9,24 @@
   <body>
     <header class="header">
       <div class="container">
-        <div class="logo">
+        <a href="./index.html" class="logo" aria-label="FlowBiz home">
           <img src="logo.png" alt="FlowBiz Logo" />
-        </div>
+        </a>
 
-        <nav class="nav">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-overlay"></div>
+
+        <nav class="nav" id="navMenu">
           <ul>
             <li><a href="./index.html" class="active">home</a></li>
             <li><a href="./product/product.html">products</a></li>
@@ -55,5 +68,38 @@
         </div>
       </section>
     </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 flowbiz. thrift with pride.</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.querySelector('.nav');
+      const navOverlay = document.querySelector('.nav-overlay');
+
+      function toggleMenu() {
+        const isOpen = navMenu.classList.toggle('open');
+        navOverlay.classList.toggle('active', isOpen);
+        document.body.classList.toggle('menu-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      menuToggle.addEventListener('click', toggleMenu);
+      navOverlay.addEventListener('click', toggleMenu);
+
+      navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            navMenu.classList.remove('open');
+            navOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
