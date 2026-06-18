@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlowBiz - Home</title>
+    <link rel="stylesheet" href="shared.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -28,11 +29,11 @@
 
         <nav class="nav" id="navMenu">
           <ul>
-            <li><a href="./index.html" class="active">home</a></li>
-            <li><a href="./product/product.html">products</a></li>
-            <li><a href="./about/about.html">about us</a></li>
-            <li><a href="./contact/contact.html">contact</a></li>
-            <li><a href="./faq/faq.html">faqs</a></li>
+            <li><a href="./index.html" class="active">Home</a></li>
+            <li><a href="./product/product.html">Products</a></li>
+            <li><a href="./about/about.html">About Us</a></li>
+            <li><a href="./contact/contact.html">Contact</a></li>
+            <li><a href="./faq/faq.html">FAQs</a></li>
           </ul>
         </nav>
       </div>
@@ -57,49 +58,24 @@
           </h1>
 
           <p class="description">
-            Discover curated minimalist fashion for every chapter. Handcrafted
-            fabrics tailored for effortless confidence in Men's, Women's, and
-            kids apparel.
+            Discover curated minimalist fashion for every chapter. Carefully
+            selected pieces tailored for effortless confidence across men's,
+            women's, and kids' apparel.
           </p>
 
           <div class="hero-buttons">
-            <a href="#" class="btn primary-btn">SHOP THE COLLECTION →</a>
+            <a href="./product/product.html" class="btn primary-btn">Shop The Collection &rarr;</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <div class="container">
-        <p>&copy; 2026 flowbiz. thrift with pride.</p>
+        <p>&copy; 2026 FlowBiz. Thrift With Pride.</p>
       </div>
     </footer>
 
-    <script>
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navMenu = document.querySelector('.nav');
-      const navOverlay = document.querySelector('.nav-overlay');
-
-      function toggleMenu() {
-        const isOpen = navMenu.classList.toggle('open');
-        navOverlay.classList.toggle('active', isOpen);
-        document.body.classList.toggle('menu-open', isOpen);
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      menuToggle.addEventListener('click', toggleMenu);
-      navOverlay.addEventListener('click', toggleMenu);
-
-      navMenu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth <= 768) {
-            navMenu.classList.remove('open');
-            navOverlay.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    </script>
+    <script src="site.js"></script>
   </body>
 </html>

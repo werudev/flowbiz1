@@ -1,185 +1,118 @@
-/* General Body and Container Styles */
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    background: #f7f5f1;
-    color: #333;
-    line-height: 1.6;
-}
-
-.container {
-    width: min(1120px, 92%);
-    margin: 0 auto;
-}
-
-/* Header Styles */
-.header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 82px;
-    padding: 10px 0;
-}
-
-.logo img {
-    display: block;
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-}
-
-.nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-}
-
-.nav ul li {
-    margin: 0;
-}
-
-.nav ul li a {
-    position: relative;
-    text-decoration: none;
-    color: #8a3d11;
-    font-weight: 700;
-  
-    letter-spacing: 0.04em;
-    padding: 0.55rem 0;
-}
-
-.nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #d97706;
-    transform: scaleX(0);
-    transition: transform 0.2s ease;
-}
-
-.nav ul li a.active,
-.nav ul li a:hover {
-    color: #d97706;
-}
-
-.nav ul li a.active::after,
-.nav ul li a:hover::after {
-    transform: scaleX(1);
-}
-
-.header-icons img {
-    height: 20px;
-    margin-left: 20px;
-}
-
-/* Main Content Styles */
 .main-content {
-    padding: 60px 0;
+    padding: 64px 0;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
     gap: 40px;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    padding: 38px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
 
-.contact-form-section h2,
-.contact-info-section h2 {
-    color: #333;
-    margin-bottom: 20px;
+.contact-form-section h2 {
+    margin-bottom: 8px;
+    color: #222;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
 }
 
-/* Form Styles */
+.contact-intro {
+    max-width: 58ch;
+    margin-bottom: 26px;
+    color: var(--muted);
+}
+
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
-    font-size: 14px;
+    color: #4d4d4d;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
+.form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box; /* Ensures padding doesn't expand the element */
+    padding: 13px 14px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid #ded4ca;
+    border-radius: 8px;
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-group textarea {
-    min-height: 120px;
+    min-height: 132px;
     resize: vertical;
 }
 
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(199, 90, 27, 0.14);
+    outline: none;
+}
+
 .send-message-btn {
-    background-color: #e67e22; /* Orange */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 1.4rem;
     color: #fff;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 4px;
-    font-size: 18px;
+    background: var(--brand);
+    border: 0;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    width: fit-content;
-    margin-top: 30px;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .send-message-btn:hover {
-    background-color: #d35400; /* Darker orange */
+    background: var(--brand-dark);
+    transform: translateY(-1px);
 }
 
-/* Contact Info Section */
 .contact-info-section {
-    padding-left: 30px;
-    border-left: 1px solid #eee;
+    padding-left: 32px;
+    border-left: 1px solid var(--border);
 }
 
 .info-card {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+}
+
+.info-card:last-child {
+    margin-bottom: 0;
 }
 
 .info-card h3 {
-    font-size: 16px;
-    color: #e67e22; /* Orange for headings */
-    margin-bottom: 10px;
-    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--brand);
+    font-size: 0.86rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
 }
 
 .info-card p {
     margin: 5px 0;
-    line-height: 1.6;
+    color: var(--muted);
 }
 
 .info-card a {
-    color: #e67e22;
+    color: var(--brand-dark);
+    font-weight: 700;
     text-decoration: none;
 }
 
@@ -187,55 +120,32 @@ body {
     text-decoration: underline;
 }
 
-.read-faqs-link {
-    color: #e67e22;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
-    display: inline-block;
-}
+@media (max-width: 820px) {
+    .main-content {
+        padding: 48px 0;
+    }
 
-.read-faqs-link:hover {
-    text-decoration: underline;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 28px;
     }
 
     .contact-info-section {
-        border-left: none;
+        padding-top: 28px;
         padding-left: 0;
-        margin-top: 40px;
-        border-top: 1px solid #eee;
-        padding-top: 30px;
-    }
-
-    .nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav ul li {
-        margin: 10px 0;
+        border-top: 1px solid var(--border);
+        border-left: 0;
     }
 }
 
-footer {
-    background-color: #fff;
-    color: #8a3d11;
-    border-top: 1px solid #eee;
-    padding: 24px 0;
-    text-align: center;
-    margin-top: 40px;
-}
+@media (max-width: 480px) {
+    .contact-grid {
+        width: 100%;
+        padding: 22px;
+    }
 
-footer .container p {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: lowercase;
+    .send-message-btn {
+        width: 100%;
+    }
 }

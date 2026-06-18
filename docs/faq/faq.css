@@ -1,145 +1,58 @@
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    background-color: #f7f5f1;
-    color: #333;
-    line-height: 1.6;
-}
-
-:root {
-    --burnt-orange: #c75a1b;
-    --burnt-orange-dark: #9a3412;
-    --text: #333333;
-    --muted: #666666;
-}
-
-.container {
-    width: min(1120px, 92%);
-    margin: 0 auto;
-}
-
-/* Header Styles */
-.header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 82px;
-    padding: 10px 0;
-}
-
-.logo img {
-    display: block;
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-}
-
-.nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-}
-
-.nav ul li { margin: 0; }
-
-.nav ul li a {
-    position: relative;
-    text-decoration: none;
-    color: #8a3d11;
-    font-weight: 700;
-    
-    letter-spacing: 0.04em;
-    padding: 0.55rem 0;
-}
-
-.nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #d97706;
-    transform: scaleX(0);
-    transition: transform 0.2s ease;
-}
-
-.nav ul li a.active,
-.nav ul li a:hover {
-    color: #d97706;
-}
-
-.nav ul li a.active::after,
-.nav ul li a:hover::after {
-    transform: scaleX(1);
-}
-
-/* FAQ Section */
 .faq {
-    max-width: 900px;
+    width: min(900px, 92%);
     margin: 0 auto;
-    padding: 5rem 2rem;
+    padding: 72px 0;
 }
 
 .text {
+    margin-bottom: 32px;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 .text h1 {
-    font-size: 2.2rem;
-    color: #222;
     margin-bottom: 0.6rem;
+    color: #222;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
 }
 
 .text p {
-    color: #666;
+    color: var(--muted);
 }
 
 .faq-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    gap: 14px;
 }
 
 .faq-item {
-    background: #fff;
-    border: 1px solid rgba(199, 90, 27, 0.2);
-    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    background: #fff;
+    border: 1px solid rgba(199, 90, 27, 0.22);
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(32, 24, 16, 0.05);
 }
 
-/* Remove default browser arrow from <summary> */
 summary {
     list-style: none;
 }
+
 summary::-webkit-details-marker {
     display: none;
 }
 
 .faq-question {
-    padding: 1.25rem 1.5rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 1.2rem 1.35rem;
+    color: #262626;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: bolder;
-    color: var(--text);
-    transition: background 0.3s ease;
+    font-weight: 800;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .faq-question:hover {
@@ -147,42 +60,42 @@ summary::-webkit-details-marker {
 }
 
 .plus {
-    font-size: 1.3rem;
-    color: var(--burnt-orange);
-    transition: transform 0.3s ease;
+    flex: 0 0 auto;
+    color: var(--brand);
+    font-size: 1.35rem;
+    line-height: 1;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* THE MAGIC: CSS-only state handling using [open] */
 details[open] .faq-question {
-    background: var(--burnt-orange);
     color: #fff;
+    background: var(--brand);
 }
 
 details[open] .plus {
     color: #fff;
-    transform: rotate(45deg); /* Turns + into x */
+    transform: rotate(45deg);
 }
 
 .faq-answer p {
-    padding: 1.5rem;
     margin: 0;
+    padding: 1.25rem 1.35rem;
     color: var(--muted);
-    border-top: 1px solid rgba(199, 90, 27, 0.1);
+    border-top: 1px solid rgba(199, 90, 27, 0.12);
 }
 
-footer {
-    background-color: #fff;
-    color: #8a3d11;
-    border-top: 1px solid #eee;
-    text-align: center;
-    padding: 24px 0;
-    margin-top: 40px;
-}
+@media (max-width: 480px) {
+    .faq {
+        width: min(100% - 32px, 900px);
+        padding: 52px 0;
+    }
 
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: lowercase;
+    .faq-question {
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .faq-answer p {
+        padding: 1rem;
+    }
 }

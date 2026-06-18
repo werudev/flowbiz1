@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products | FlowBiz</title>
+    <link rel="stylesheet" href="../shared.css">
     <link rel="stylesheet" href="product.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <img src="img/logo.png" alt="">
-            </div>
-            <nav class="nav">
+            <a href="../index.html" class="logo" aria-label="FlowBiz home">
+                <img src="../logo.png" alt="FlowBiz Logo">
+            </a>
+
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-overlay"></div>
+
+            <nav class="nav" id="navMenu">
                 <ul>
-                    <li><a href="../index.html">home</a></li>
-                    <li><a href="./product.html" class="active">products</a></li>
-                    <li><a href="../about/about.html">about us</a></li>
-                    <li><a href="../contact/contact.html">contact</a></li>
-                    <li><a href="../faq/faq.html">faqs</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./product.html" class="active">Products</a></li>
+                    <li><a href="../about/about.html">About Us</a></li>
+                    <li><a href="../contact/contact.html">Contact</a></li>
+                    <li><a href="../faq/faq.html">FAQs</a></li>
                 </ul>
             </nav>
         </div>
@@ -101,11 +111,12 @@
 
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 flowbiz. thrift with pride.</p>
+            <p>&copy; 2026 FlowBiz. Thrift With Pride.</p>
         </div>
     </footer>
+    <script src="../site.js"></script>
 
 </body>
 </html>
